@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *,*::after,*::before{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        .container{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        }
+
+        .left{
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+            background-image:url('Goku-blue.jpg');
+            background-size: cover;
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+
+        .left::before{
+            content: '';
+            background-color: rgba(50, 125, 168,0.5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+        }
+
+ 
+        .left > h3{
+            position: absolute;
+            font-size: 50px;
+            white-space: nowrap;
+            color: white;
+            font-weight: bolder;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .right{
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            overflow: hidden;
+            background-image:url('Goku-pink.jpg');
+            background-size: cover;
+            background-position: 50% 0%;
+            background-repeat: no-repeat;
+        }
+
+        .right::before{
+            content: '';
+            background-color: rgba(162, 50, 168,0.5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+        }
+
+
+
+        .right > h3{
+            position: absolute;
+            font-size: 50px;
+            white-space: nowrap;
+            color: white;
+            font-weight: bolder;
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .left-container .left{
+            width: 70%;
+        }
+
+        .left-container .right{
+            width: 30%;
+        }
+
+        .right-container .left{
+            width: 30%;
+        }
+
+        .right-container .right{
+            width: 70%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left"><h3>Real Sayan!</h3></div>
+        <div class="right"><h3>Fake Saiyan!</h3></div>
+        
+    </div>
+
+    <script>
+        let container = document.querySelector('.container');
+        let left = document.querySelector('.left');
+        let right = document.querySelector('.right');
+
+        left.addEventListener('mouseenter',(e)=>{container.classList.add('left-container')})
+        left.addEventListener('mouseleave',(e)=>{container.classList.remove('left-container')})
+        
+        right.addEventListener('mouseenter',(e)=>{container.classList.add('right-container')})
+        right.addEventListener('mouseleave',(e)=>{container.classList.remove('right-container')})
+    </script>
+</body>
+</html>
